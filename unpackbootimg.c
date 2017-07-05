@@ -102,6 +102,13 @@ int main(int argc, char** argv)
     sprintf(basetmp, "%08x", header.kernel_addr - 0x00008000);
     write_string_to_file(tmp, basetmp);
 
+    //printf("ramdisk_addr...\n");
+    sprintf(tmp, "%s/%s", directory, basename(filename));
+    strcat(tmp, "-ramdisk_addr");
+    char ramdiskaddrtmp[200];
+    sprintf(ramdiskaddrtmp, "%08x", header.ramdisk_addr);
+    write_string_to_file(tmp, ramdiskaddrtmp);
+
     //printf("pagesize...\n");
     sprintf(tmp, "%s/%s", directory, basename(filename));
     strcat(tmp, "-pagesize");
